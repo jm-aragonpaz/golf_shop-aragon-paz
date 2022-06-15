@@ -1,12 +1,14 @@
-import logo from './logo.svg';
+//@ts-check
 import './App.css';
+import NavBar from './components/Navbar/NavBar'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <span>Hola Mundo, esta es la app de golf shop.</span>
+        <NavBar/>
       </header>
+      <h2>Aqui podrás encontrar todo lo necesario para la práctica del Golf!</h2>  
     </div>
   );
 }
