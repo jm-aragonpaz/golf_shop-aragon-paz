@@ -1,5 +1,12 @@
-.navbar{
+#navBar{
     display: flex;
     flex-direction:row;
-    width: 100%
+    width: 96%;
+    color: #fff
+}
+#carrito{
+    background-color: none;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
 }

@@ -12,6 +12,9 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import CartWidget from "./CartWidget";
+import './NavBar.css'
+import {ReactComponent as MyLogo} from "../../assets/golf_2.svg";
 
 const pages = ["Ofertas", "Productos", "Contacto"];
 const settings = ["Perfil", "Configuracion", "Compras", "Salir"];
@@ -36,13 +39,14 @@ const ResponsiveAppBar = () => {
     };
 
 return (
-    <AppBar position="static">
+    <AppBar position="static" id="navBar">
         <Container maxWidth="xl"
                     sx={{
                         backgroundColor: "green",
                     }}>
             <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            <MyLogo fill="white" alt="Logo" width="40px"/>
+            {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
             <Typography
                 variant="h6"
                 noWrap
@@ -51,14 +55,14 @@ return (
                 sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },
-                    fontFamily: "monospace",
+                    fontFamily: "sans-serif",
                     fontWeight: 700,
-                    letterSpacing: ".3rem",
+                    letterSpacing: ".1rem",
                     color: "inherit",
                     textDecoration: "none",
                 }}
             >
-            Golf Shop
+            GOLF SHOP
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -127,7 +131,9 @@ return (
                 </Button>
                 ))}
             </Box>
-
+            <Box id="carrito">
+                <CartWidget Cant="4"/>
+            </Box>        
             <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
