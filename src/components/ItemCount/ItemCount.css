@@ -1,0 +1,12 @@
+#buttonBox{
+    margin-top: 0.2rem;
+    margin-bottom:0.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display:flex;
+    justify-content:space-between;
+}
+
+#addButton{
+    margin-bottom: 0.5rem;;
+}

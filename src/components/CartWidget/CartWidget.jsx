@@ -1,5 +1,5 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SvgIcon from '@mui/material/SvgIcon';
+
 
 export const CartWidget = ({Cant}) =>{
     return(
