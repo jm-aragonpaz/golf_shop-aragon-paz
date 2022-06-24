@@ -12,8 +12,8 @@ export default function Item({ id, title, price, description, pictureUrl }) {
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/src/assets/putter.jpg"
-                        alt="palos de golf"
+                        src={pictureUrl}
+                        alt={description}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
@@ -25,5 +25,5 @@ export default function Item({ id, title, price, description, pictureUrl }) {
                     </CardContent>
                 </CardActionArea>
             </Card>
-    )
+    );
 }

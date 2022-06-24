@@ -14,15 +14,15 @@ function App() {
     //   <h2>Aqui podrás encontrar todo lo necesario para la práctica del Golf!</h2>  
     //   <ItemListContainer Title= "un Greeting" Name="Juan" Desc="de Productos" Price={20000}/>      
     // </div>
-     <BrowserRouter>
-      <div>NavBar</div>
-        <Routes> 
-          <Route path="/" element={<ItemListContainer Title= "un Greeting" Name="Juan" Desc="de Productos" Price={20000}/>}/>
-          <Route path="/category/:id" element={<ItemListContainer Title= "un Greeting" Name="Juan" Desc="de Productos" Price={20000}/>}/>
-          <Route path="/item/:id" element={<ItemDetailContainer />}/>
-        </Routes>
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting="hola" />} />
+        <Route path="/category/:id" element={<ItemListContainer greeting="hola"/>} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
       <div>Footer</div>
-     </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
