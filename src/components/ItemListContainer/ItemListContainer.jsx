@@ -1,7 +1,6 @@
 //@ts-check
 import React, { useEffect, useState } from 'react'
 import './ItemListContainer.css'
-// import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
 
 export default function ItemListContainer({ greeting }) {
@@ -9,9 +8,9 @@ export default function ItemListContainer({ greeting }) {
     const [itemList, setItemList] = useState([])
     useEffect(() => {
         let items = [
-            { id: 1, title: "IronSet", price: 700, description: "IronSet", pictureURL: "https://www.worldwidegolfshops.com/titleist-t200-iron-set-100013451/p" },
-            { id: 2, title: "Driver", price: 200, description: "Driver Titleist", pictureURL: "https://www.a-alvarez.com/productsimages/driver1-golf-titleist-917-d2-GMI917D2ROGS85.jpg/450/fill/ffffff" },
-            { id: 3, title: "Putter", price: 225, description: "Putter Scotty Cameron Newport 2", pictureURL: "../../assets/putter.jpg" }
+            { id: 1, title: "IronSet", price: 700, description: "IronSet", pictureUrl: "https://www.titleist.com/dw/image/v2/AAZW_PRD/on/demandware.static/-/Sites-titleist-clubs-master/default/dwe6b25fca/541C/541C_01.jpg?sw=300&sh=300&sm=fit&sfrm=png" },
+            { id: 2, title: "Driver", price: 200, description: "Driver Titleist", pictureUrl: "https://www.a-alvarez.com/productsimages/driver1-golf-titleist-917-d2-GMI917D2ROGS85.jpg/450/fill/ffffff" },
+            { id: 3, title: "Putter", price: 225, description: "Putter Scotty Cameron Newport 2", pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_865790-MLA42334108332_062020-O.webp" }
         ];
         new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -23,14 +22,7 @@ export default function ItemListContainer({ greeting }) {
     }, [])
 
     return (
-        // <div id="greeting">
-        //     <p>Hola soy {Title}</p>
-        //     <p>Mi nombre es {Name}</p>
-        //     <p>Esta es mi descripcion {Desc}</p>
-        //     <p>Este es mi precio {Price}</p>
-        //     <ItemCount stock={5} initial={1} onAdd="onAdd"/>
-        //     {/* <ItemCount stock={0} initial={1} onAdd="onAdd"/> */}
-        // </div>
+
         <>
             <span className="itemListContainer">{greeting}</span>
             <ItemList itemList={itemList} />

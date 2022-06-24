@@ -58,7 +58,9 @@ export default function ItemCount({stock,initial,onAdd}){
                 <div>{auxInitial}</div>
                 <div><button onClick={()=> suma()}>+</button></div>
             </div>
-                <button id="addButton" onClick={()=> onAdd(auxInitial)}>Agregar al carrito</button>
+            <div id="addButton">
+                <button  onClick={()=> onAdd(auxInitial)}>Agregar al carrito</button>
+                </div>
             </div>
         )
     }
