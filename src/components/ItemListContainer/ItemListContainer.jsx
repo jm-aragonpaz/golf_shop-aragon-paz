@@ -1,3 +1,4 @@
+//@ts-check
 import React, { useEffect, useState } from 'react'
 import './ItemListContainer.css'
 // import ItemCount from '../ItemCount/ItemCount';
@@ -7,9 +8,11 @@ export default function ItemListContainer({ greeting }) {
     // const ItemListContainer = ({Title, Name, Desc, Price}) =>{
     const [itemList, setItemList] = useState([])
     useEffect(() => {
-        let items = [{ id: 1, title: "IronSet", price: "700", description: "IronSet", pictureURL: "https://www.worldwidegolfshops.com/titleist-t200-iron-set-100013451/p" },
-        { id: 2, title: "Driver", price: "200", description:"Driver Titleist", pictureURL: "https://www.a-alvarez.com/productsimages/driver1-golf-titleist-917-d2-GMI917D2ROGS85.jpg/450/fill/ffffff" },
-        { id: 3, title: "Putter", price: "225", description:"Putter Scotty Cameron Newport 2", pictureURL: "../../assets/putter.jpg" }];
+        let items = [
+            { id: 1, title: "IronSet", price: 700, description: "IronSet", pictureURL: "https://www.worldwidegolfshops.com/titleist-t200-iron-set-100013451/p" },
+            { id: 2, title: "Driver", price: 200, description: "Driver Titleist", pictureURL: "https://www.a-alvarez.com/productsimages/driver1-golf-titleist-917-d2-GMI917D2ROGS85.jpg/450/fill/ffffff" },
+            { id: 3, title: "Putter", price: 225, description: "Putter Scotty Cameron Newport 2", pictureURL: "../../assets/putter.jpg" }
+        ];
         new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(items)
@@ -30,7 +33,7 @@ export default function ItemListContainer({ greeting }) {
         // </div>
         <>
             <span className="itemListContainer">{greeting}</span>
-            <ItemList itemList={itemList}/>
+            <ItemList itemList={itemList} />
         </>
     )
 }
