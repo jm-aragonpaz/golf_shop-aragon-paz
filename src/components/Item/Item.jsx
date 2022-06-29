@@ -6,10 +6,11 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import ItemCount from '../ItemCount/ItemCount';
 import "../ItemCount/ItemCount.css"
-
+import "./Item.css"
 export default function Item({ id, title, price, description, pictureUrl}) {
-    console.log(description,pictureUrl)
+    // console.log(description,pictureUrl)
     return (
+        <div id="card">
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                     <CardMedia
@@ -20,10 +21,10 @@ export default function Item({ id, title, price, description, pictureUrl}) {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {id}{title}
+                            {id}. {title}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            {description} {price}
+                            {description}. Precio: {price} USD
                         </Typography>
                     </CardContent>
                 </CardActionArea>
@@ -31,5 +32,6 @@ export default function Item({ id, title, price, description, pictureUrl}) {
                     <ItemCount stock={5} initial={1} onAdd="onAdd"/>
                 </CardActionArea>
             </Card>
+            </div>
     );
 }
