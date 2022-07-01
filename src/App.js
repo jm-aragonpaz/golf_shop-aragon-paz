@@ -8,14 +8,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <BrowserRouter>
+    <div>
       <NavBar/>
       <Routes>
         <Route path="/" element={<ItemListContainer greeting="Hola, soy un greeting" />} />
         <Route path="/category/:id" element={<ItemListContainer greeting="hola"/>} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="/item/:itemChosen" element={<ItemDetailContainer />} />
       </Routes>
-      <ItemDetailContainer/>
       <div>Footer</div>
+      </div>
     </BrowserRouter>
   );
 }

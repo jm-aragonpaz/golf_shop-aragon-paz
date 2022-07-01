@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import CartWidget from "../CartWidget/CartWidget";
 import './NavBar.css'
 import {ReactComponent as MyLogo} from "../../assets/golf_2.svg";
+import { Link } from "react-router-dom";
 
 const pages = ["Ofertas", "Productos", "Contacto"];
 const settings = ["Perfil", "Configuracion", "Compras", "Salir"];
@@ -45,7 +46,9 @@ return (
                         backgroundColor: "green",
                     }}>
             <Toolbar disableGutters>
-            <MyLogo fill="white" alt="Logo" width="40px"/>
+                <Link to={"/"} style={{textDecoration:"none"}}>
+                    <MyLogo fill="white" alt="Logo" width="40px"/>
+                </Link>
             {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
             <Typography
                 variant="h6"
@@ -101,12 +104,12 @@ return (
                 ))}
             </Menu>
             </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
             <Typography
                 variant="h5"
                 noWrap
                 component="a"
-                href=""
+                href="/"
                 sx={{
                     mr: 2,
                     display: { xs: "flex", md: "none" },
@@ -118,7 +121,7 @@ return (
                     textDecoration: "none",
                 }}
             >
-            LOGO
+            GOLF SHOP
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (

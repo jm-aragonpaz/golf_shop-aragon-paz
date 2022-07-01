@@ -23,9 +23,9 @@ export default function ItemListContainer({ greeting }) {
 
     return (
 
-        <>
+        <div>
             <span className="itemListContainer">{greeting}</span>
             <ItemList itemList={itemList} />
-        </>
+        </div>
     )
 }

@@ -2,13 +2,14 @@
 import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail'
+
 export default function ItemDetailContainer() {
   const [item, setItem]= useState({});
   const [error, setError]= useState(false);
   const [loading, setLoading] = useState(true);
 
-  // let { itemChosen } = useParams();
-  let itemChosen = "1"; //Este es el IronSet
+  let { itemChosen } =  useParams();
+
   useEffect(()=>{
     let promiseDetail= new Promise((resolve,reject)=>{
       setTimeout(()=>{
@@ -16,18 +17,20 @@ export default function ItemDetailContainer() {
           .then((response)=> response.json())
           .then((data)=>{
             resolve(data);
-            // console.log(data);
+            console.log(data);
           })
       },2000) 
     });
     promiseDetail
     .then((resultado)=>{
-      let aux = resultado.find((element)=> element.id == itemChosen)
+      console.log(resultado)
+      let aux = resultado.find((element) => element.id == itemChosen)
       setItem(aux);
-      // console.log(item);
+      console.log(item);
     })
     .catch((error)=>{
       setError(true);
+      console.log(error)
     })
     .finally(() =>{
       setLoading(false);
