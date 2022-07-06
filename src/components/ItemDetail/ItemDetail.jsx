@@ -30,7 +30,7 @@ export default function ItemDetail({item}) {
     <div id="grid">
         <Item key={item.id} id={item.id} title={item.title} price={item.price} 
         description={item.description} pictureUrl={item.pictureUrl} />
-        <ItemCount stock={5} initial={0} onAdd={onAdd}/>
+        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
     </div>
   );
 }

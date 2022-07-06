@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import { Link } from "react-router-dom";
 import "./ItemCount.css";
 
 export default function ItemCount({stock,initial,onAdd}){
@@ -29,6 +29,7 @@ export default function ItemCount({stock,initial,onAdd}){
             </div>
             <div id="addButton">
                 <button  onClick={()=> {onAdd(auxInitial,auxStock)}}>Agregar al carrito</button>
+                <button ><Link to={'/Cart'} style={{textDecoration:"none", color:"black"}}>Comprar</Link></button>
                 </div>
         </div>
     )
