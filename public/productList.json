@@ -4,6 +4,7 @@
         "title": "IronSet",
         "price": 700,
         "description": "IronSet",
+        "category": "clubSet",
         "pictureUrl": "https://www.titleist.com/dw/image/v2/AAZW_PRD/on/demandware.static/-/Sites-titleist-clubs-master/default/dwe6b25fca/541C/541C_01.jpg?sw=300&sh=300&sm=fit&sfrm=png"
     },
     {
@@ -11,6 +12,7 @@
         "title": "Driver",
         "price": 200,
         "description": "Driver Titleist",
+        "category":"driver",
         "pictureUrl": "https://www.a-alvarez.com/productsimages/driver1-golf-titleist-917-d2-GMI917D2ROGS85.jpg/450/fill/ffffff"
     },
     {
@@ -18,6 +20,7 @@
         "title": "Putter",
         "price": 225,
         "description": "Putter Scotty Cameron Newport 2",
+        "category": "putter",
         "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_865790-MLA42334108332_062020-O.webp"
     }
 ]

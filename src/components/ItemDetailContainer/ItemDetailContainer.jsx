@@ -17,16 +17,13 @@ export default function ItemDetailContainer() {
           .then((response)=> response.json())
           .then((data)=>{
             resolve(data);
-            console.log(data);
           })
       },2000) 
     });
     promiseDetail
     .then((resultado)=>{
-      console.log(resultado)
       let aux = resultado.find((element) => element.id == itemChosen)
       setItem(aux);
-      console.log(item);
     })
     .catch((error)=>{
       setError(true);

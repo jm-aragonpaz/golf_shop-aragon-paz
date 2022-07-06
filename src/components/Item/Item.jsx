@@ -10,7 +10,6 @@ import "./Item.css"
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 export default function Item({ id, title, price, description, pictureUrl}) {
-    console.log(description,pictureUrl)
     return (
             <Card id="card" sx={{ maxWidth: 345 }}>
                 <CardActionArea>
@@ -33,7 +32,7 @@ export default function Item({ id, title, price, description, pictureUrl}) {
                     <Button size="small" color="primary">
                         <Link to={`./item/${id}`} style={{color:'inherit',textDecoration:'none'}}>Ver Detalle</Link>
                     </Button>
-                    <ItemCount stock={5} initial={1} onAdd="onAdd"/>
+                    {/* <ItemCount stock={5} initial={1} onAdd="onAdd"/> */}
                 </CardActionArea>
             </Card>
     );
