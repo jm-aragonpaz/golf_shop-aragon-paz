@@ -13,7 +13,8 @@ import Button from '@mui/material/Button';
 export default function Cart() {
 
     const { cart, removeItem, clear } = useContext(MyCartContext);
-    console.log(JSON.stringify(cart));
+    // console.log(JSON.stringify(cart));
+    console.log(cart);
 
     let total = (cart.reduce((acc, item) => acc + item.subTotal, 0));
 

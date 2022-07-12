@@ -4,7 +4,7 @@ import React, { createContext, useState } from 'react'
 export const MyCartContext = createContext(null);
 
 export default function CartContext({children}) {
-    const [cart,setCart]=useState([]);
+    const [cart,setCart] = useState([]);
 
     function addItem(item,quantity) {
         const itemAdded = 
@@ -19,8 +19,9 @@ export default function CartContext({children}) {
             subtotal: item.price*item.cant
         }
         isInCart(itemAdded)
-        console.log("Se agrego; ", itemAdded.title, "por ", itemAdded.cant, "unidad/es")
+        console.log("Se agrego: ", itemAdded.title, "por ", itemAdded.cant, "unidad/es")
         console.log("cart ", JSON.stringify(cart))
+        console.log(cart)
     }
 
     function removeItem(itemId){
@@ -33,7 +34,7 @@ export default function CartContext({children}) {
 
     const isInCart = (newItem) => {
         setCart( cart.reduce((adder,newItem)=>{
-            let isOnCart = cart.find((it)=>it.id === newItem.id);
+            let isOnCart = cart.find((it)=>it.id == newItem.id);
             if (isOnCart){
                 return adder.map((it)=>{
                     if(it.id===isOnCart.id){
@@ -46,7 +47,7 @@ export default function CartContext({children}) {
                     }
                 });
             }else{
-                return[...adder,newItem];
+                return([...adder,newItem]);
             }
         },[]))
     }

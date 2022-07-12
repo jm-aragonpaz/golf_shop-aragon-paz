@@ -6,10 +6,15 @@ import { SettingsCellOutlined } from '@mui/icons-material';
 import { MyCartContext } from '../../context/CartContext';
 
 export default function ItemDetail({item}) {
-  const [Count, setCount] = useState({});  // console.log(item)
+  const [count, setCount] = useState({})
+  const {addItem}=useContext(MyCartContext);  // console.log(item)
   function onAdd(cant,stock){
     
     if((cant>0)&&(stock>0)){
+      console.log(cant);
+      addItem(item,cant);
+      setCount(cant);
+      console.log(count);
       swal({                 
         title: 'Información',
         text: `¿Estás seguro que queres agregar ` + cant +` unidad/es al carrito?`,
@@ -23,13 +28,12 @@ export default function ItemDetail({item}) {
             swal(`Usted ha agregado`+ cant +` unidad/es al carrito`,{
                 icon:"success",
             });
-            addItem(item,cant);
-            setCount(cant)
-            console.log('Count=',Count)
+            
         }else{
             swal("Podés volver a seleccionar la cantidad deseada");
         }
     })
+    
     }
 }
   return (
