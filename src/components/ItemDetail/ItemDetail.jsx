@@ -36,6 +36,7 @@ export default function ItemDetail({item}) {
     
     }
 }
+console.log(count);
   return (
     <div id="grid">
         <Item key={item.id} id={item.id} title={item.title} price={item.price} 
