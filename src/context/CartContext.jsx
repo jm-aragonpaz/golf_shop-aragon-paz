@@ -5,55 +5,58 @@ export const MyCartContext = createContext(null);
 
 export default function CartContext({children}) {
     const [cart,setCart] = useState([]);
-
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [cant,setCant]=useState(0)
     function addItem(item,quantity) {
-        const itemAdded = 
-        {
-            id:item.id,
-            title: item.title,
-            price: item.price,
-            description: item.description,
-            category: item.category,
-            pictureURL: item.pictureURL,
-            cant: quantity,
-            subtotal: item.price*item.cant
+        let duplicate = cart.find(cart=>cart.id === item.id)
+        if (duplicate){
+
+        }else{
+            !duplicate && setCart(cart => [...cart,{...item, quantity: quantity, subtotal: item.price * quantity}])
+            setTotalPrice(totalPrice + item.price * quantity)
+            setCant(quantity)
         }
-        isInCart(itemAdded)
-        console.log("Se agrego: ", itemAdded.title, "por ", itemAdded.cant, "unidad/es")
-        console.log("cart ", JSON.stringify(cart))
-        console.log(cart)
     }
 
-    function removeItem(itemId){
-        setCart(cart.filter((it)=>it.id !== itemId));
+    function removeItem(id,quantity){
+        setCart(cart.filter((cartIt) => {
+            return cartIt.id !== id
+        }));
+        setTotalPrice(totalPrice - cart.id * quantity)
     }
 
     function clear(){
         setCart([])
     }
-
-    const isInCart = (newItem) => {
-        setCart( cart.reduce((adder,newItem)=>{
-            let isOnCart = cart.find((it)=>it.id == newItem.id);
-            if (isOnCart){
-                return adder.map((it)=>{
-                    if(it.id===isOnCart.id){
-                        return{
-                            ...it,
-                            cant:(it.cant+newItem.cant)
-                        }
-                    }else{
-                        return it;
-                    }
-                });
-            }else{
-                return([...adder,newItem]);
-            }
-        },[]))
+    let data = {
+        cart,
+        addItem,
+        removeItem,
+        clear,
+        totalPrice
     }
+    // const isInCart = (newItem) => {
+    //     setCart( cart.reduce((adder,newItem)=>{
+    //         let isOnCart = cart.find((it)=>it.id == newItem.id);
+    //         if (isOnCart){
+    //             return adder.map((it)=>{
+    //                 if(it.id===isOnCart.id){
+    //                     return{
+    //                         ...it,
+    //                         cant:(it.cant+newItem.cant)
+    //                     }
+    //                 }else{
+    //                     return it;
+    //                 }
+    //             });
+    //         }else{
+    //             return([...adder,newItem]);
+    //         }
+    //     },[]))
+    // }
     return (
         <>
-            <MyCartContext.Provider value={{cart, addItem, removeItem, clear}}>{children}</MyCartContext.Provider>
+            <MyCartContext.Provider value={data}>{children}</MyCartContext.Provider>
         </>
     )
 }

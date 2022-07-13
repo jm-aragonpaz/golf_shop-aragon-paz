@@ -9,14 +9,18 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
+import { Link } from 'react-router-dom';
 export default function Cart() {
 
-    const { cart, removeItem, clear } = useContext(MyCartContext);
+    const { cart, removeItem, clear, totalPrice } = useContext(MyCartContext);
     // console.log(JSON.stringify(cart));
     console.log(cart);
+    let total=totalPrice
+    console.log(total)
 
-    let total = (cart.reduce((acc, item) => acc + item.subTotal, 0));
+    // let total = (cart.reduce((acc, item) => acc + item.subTotal, 0));
 
     return (
         <>
@@ -46,8 +50,8 @@ export default function Cart() {
                                     <TableCell align="right">{row.title}</TableCell>
                                     <TableCell align="right">{row.price}</TableCell>
                                     <TableCell align="right">{row.subtotal}</TableCell>
-                                    <TableCell align="right">{row.cantidad}</TableCell>
-                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(row.id) }} >Icono eliminar</Button></TableCell>
+                                    <TableCell align="right">{row.quantity}</TableCell>
+                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(row.id,row.quantity) }} ><DeleteForeverIcon/>Icono eliminar</Button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -59,6 +63,9 @@ export default function Cart() {
                     <Stack spacing={2} direction="row">
                         <Button variant="contained">Finalizar compra</Button>
                         <Button variant="outlined" onClick={() => { clear() }} > Vaciar carrito</Button>
+                        <Button variant="contained"> 
+                            <Link to={'../'} style={{color:'inherit',textDecoration:'none'}}>Seguir comprando</Link>
+                        </Button>
                     </Stack>
                 </div>
 
