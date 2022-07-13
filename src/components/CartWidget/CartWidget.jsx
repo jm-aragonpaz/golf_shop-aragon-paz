@@ -29,13 +29,11 @@ export const CartWidget = () =>{
             <Button
                     color="inherit"
                     id="basic-button"
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
                     onClick={handleClick}
                 >
-                <Link to={'./Cart'} style={{color:'inherit',textDecoration:'none'}}><ShoppingCartIcon  color='white'/></Link>
-                        <p className='cart-text'>{cart.length}</p> 
+                <Link to={'./Cart'} style={{color:'inherit',textDecoration:'none',display:'inline-flex'}}><ShoppingCartIcon  color='white'/>
+                    <p className={cart.lenght===0 ? 'hideCart' : 'cart-text'}>{cart.length}</p>
+                </Link>
                 </Button>
         </div>
     );

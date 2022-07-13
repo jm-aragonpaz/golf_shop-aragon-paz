@@ -10,23 +10,27 @@ export default function CartContext({children}) {
     function addItem(item,quantity) {
         let duplicate = cart.find(cart=>cart.id === item.id)
         if (duplicate){
-
+            // setCart(cart=>)
         }else{
             !duplicate && setCart(cart => [...cart,{...item, quantity: quantity, subtotal: item.price * quantity}])
+            console.log(cart)
             setTotalPrice(totalPrice + item.price * quantity)
             setCant(quantity)
+            console.log(item.price,quantity)
         }
     }
 
-    function removeItem(id,quantity){
+    function removeItem(item){
+        console.log(item)
+        setTotalPrice(totalPrice - item.price)
         setCart(cart.filter((cartIt) => {
-            return cartIt.id !== id
+            return cartIt.id != item.id
         }));
-        setTotalPrice(totalPrice - cart.id * quantity)
     }
 
     function clear(){
         setCart([])
+        setTotalPrice(0)
     }
     let data = {
         cart,

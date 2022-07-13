@@ -1,0 +1,6 @@
+.hideCart{
+    display: none;
+}
+.showCart{
+    display:inline;
+}

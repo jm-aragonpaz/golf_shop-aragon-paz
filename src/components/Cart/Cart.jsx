@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
 import { Link } from 'react-router-dom';
+import CardMedia from '@mui/material/CardMedia';
 export default function Cart() {
 
     const { cart, removeItem, clear, totalPrice } = useContext(MyCartContext);
@@ -44,14 +45,19 @@ export default function Cart() {
                                     key={row.id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell component="th" scope="row">
-                                        {row.pictureURL}
+                                    <TableCell>
+                                    <CardMedia
+                                        component="img"
+                                        height="100"
+                                        src={row.pictureUrl}
+                                        alt={row.description}
+                                    />
                                     </TableCell>
                                     <TableCell align="right">{row.title}</TableCell>
                                     <TableCell align="right">{row.price}</TableCell>
                                     <TableCell align="right">{row.subtotal}</TableCell>
                                     <TableCell align="right">{row.quantity}</TableCell>
-                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(row.id,row.quantity) }} ><DeleteForeverIcon/>Icono eliminar</Button></TableCell>
+                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(cart) }} ><DeleteForeverIcon/>Icono eliminar</Button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
