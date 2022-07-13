@@ -24,7 +24,7 @@ export default function CartContext({children}) {
         console.log(item)
         setTotalPrice(totalPrice - item.price)
         setCart(cart.filter((cartIt) => {
-            return cartIt.id != item.id
+            return (cartIt.id != item.id)
         }));
     }
 

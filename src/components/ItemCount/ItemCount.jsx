@@ -29,7 +29,7 @@ export default function ItemCount({stock,initial,onAdd}){
             </div>
             <div id="addButton">
                 <button  onClick={()=> {onAdd(auxInitial,auxStock)}}>Agregar al carrito</button>
-                <button ><Link to={'/Cart'} style={{textDecoration:"none", color:"black"}}>Finalizar Compra</Link></button>
+                <button ><Link to={'/'} style={{textDecoration:"none", color:"black"}}>Seguir comprando</Link></button>
                 </div>
         </div>
     )

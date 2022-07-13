@@ -27,7 +27,7 @@ export default function Cart() {
         <>
             
             <div>
-                <TableContainer component={Paper} sx={{ width: 8 / 10, borderRadius: '15px' }}>
+                <TableContainer component={Paper} sx={{ width: 9 / 10, borderRadius: '15px' }}>
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
@@ -57,7 +57,7 @@ export default function Cart() {
                                     <TableCell align="right">{row.price}</TableCell>
                                     <TableCell align="right">{row.subtotal}</TableCell>
                                     <TableCell align="right">{row.quantity}</TableCell>
-                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(cart) }} ><DeleteForeverIcon/>Icono eliminar</Button></TableCell>
+                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(cart) }} ><DeleteForeverIcon/>Eliminar Producto</Button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
