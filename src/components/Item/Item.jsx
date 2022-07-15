@@ -21,7 +21,7 @@ export default function Item({ id, title, price, description, pictureUrl}) {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {id}. {title}
+                            {title}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             {description}. Precio: {price} USD

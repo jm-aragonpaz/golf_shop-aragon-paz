@@ -6,20 +6,23 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 
 export default function ItemDetailContainer() {
   const [item, setItem]= useState({});
-  const [error, setError]= useState(false);
+  const [err, setErr]= useState(false);
   const [loading, setLoading] = useState(true);
 
   let { itemChosen } =  useParams();
 
   useEffect(()=>{
     const db = getFirestore();
-    const itemCons= doc(db, 'products', itemChosen)
-    // let promiseItem = new Promise((resolve, reject)=>{
-      getDoc(itemCons).then((res) =>{
+    const itemCons= doc(db, 'products', itemChosen);
+    console.log(itemCons)
+    let promiseItem = new Promise((resolve, reject)=>{
+      setTimeout(()=>{resolve(getDoc(itemCons))},1000)
+    })
+      promiseItem.then((res) =>{
         setItem({ ...res.data(), id: res.id});
     })
-    .catch((error)=>{
-      setError(true);
+    .catch((err)=>{
+      setErr(true);
     })
     .finally(()=>{
       setLoading(false);
@@ -49,8 +52,8 @@ export default function ItemDetailContainer() {
   return (
     <>
         {loading && "Loading..."}
-        {error && "Hubo un error al cargar el producto"}
-        {itemChosen && <ItemDetail item={itemChosen} />}
+        {err && "Hubo un error al cargar el producto"}
+        {item && <ItemDetail item={item} />}
     </>
   )
 }

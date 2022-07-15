@@ -1,10 +1,10 @@
 //@ts-check
 import React, { useEffect, useState, useContext } from 'react'
-import { useParams } from 'react-router-dom';
+import { resolvePath, useParams } from 'react-router-dom';
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';
 import { MyCartContext } from '../../context/CartContext';
-
+import { collection, getDocs, getFirestore, where, query } from 'firebase/firestore';
 export default function ItemListContainer({ greeting }) {
     // const ItemListContainer = ({Title, Name, Desc, Price}) =>{
     const [itemList, setItemList] = useState([])
@@ -12,36 +12,43 @@ export default function ItemListContainer({ greeting }) {
     const [loading, setLoading] = useState(true);
 
     let { itemCategory } = useParams();
+    console.log(itemCategory)
 
     useEffect(() => {
-        let promiseProducts = new Promise((resolve,rej)=>{
-            setTimeout(()=>{
-                fetch("http://localhost:3000/productList.json")
-                .then((response)=> response.json())
-                .then((data)=>{
-                    resolve(data);
-                })
-            },2000)
-        });
-        promiseProducts
-        .then((resultado)=>{
+            const db = getFirestore();
+            const collList = collection(db, 'products');
+            // console.log(collList)
             if(!itemCategory){
-                setItemList(resultado);
+                let collectionFounded = new Promise((res, reject)=>{
+                    setTimeout(()=>{res(getDocs(collList))},1000)
+                })
+                collectionFounded.then((res)=>{
+                    const auxArray = res.docs.map((element)=>({...element.data(), id: element.id}));
+                    setItemList(auxArray)
+                })
+                .catch((error) =>{
+                    setError(true)
+                })
+                .finally(()=>{
+                setLoading(false)
+                })
             }else{
-                let aux = resultado.filter((element)=> element.category == itemCategory)
-                setItemList(aux);
+                let collectionfilt=query(collList, where('category', '==','itemCategory'));
+                let arrayFilt = new Promise((res,reject)=>{
+                    setTimeout(()=>{res(getDocs(collectionfilt))},1000)
+                })
+                arrayFilt.then((res)=>{
+                    const arrNormalizado = res.docs.map((element)=>({...element.data(),id: element.id}))
+                    setItemList(arrNormalizado);
+                })
+                .catch((error) =>{
+                    setError(true);
+                })
+                .finally(()=>{
+                    setLoading(false);
+                })
             }
-            })
-        .catch((error)=>{
-            setError(true);
-            console.log(error)
-        })
-        .finally(()=>{
-            setLoading(false);
-        })
         },[itemCategory]);
-        
-
     return (
 
         <div>
