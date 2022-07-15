@@ -4,7 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CartContext from './context/CartContext';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyC4dxtkETaWDkuMyymmWRc3PwntPP07Ra4",
+  authDomain: "golf-shop-ar.firebaseapp.com",
+  projectId: "golf-shop-ar",
+  storageBucket: "golf-shop-ar.appspot.com",
+  messagingSenderId: "412572882941",
+  appId: "1:412572882941:web:3f5fef518df884c0bb6b94"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <CartContext>
