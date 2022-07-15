@@ -33,7 +33,7 @@ export default function ItemListContainer({ greeting }) {
                 setLoading(false)
                 })
             }else{
-                let collectionfilt=query(collList, where('category', '==','itemCategory'));
+                let collectionfilt=query(collList, where('category', '==',itemCategory));
                 let arrayFilt = new Promise((res,reject)=>{
                     setTimeout(()=>{res(getDocs(collectionfilt))},1000)
                 })
