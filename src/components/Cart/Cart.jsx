@@ -67,7 +67,9 @@ export default function Cart() {
                 <div>
                     Importe total  $ {total}
                     <Stack spacing={2} direction="row">
-                        <Button variant="contained">Finalizar compra</Button>
+                        <Button variant="contained">
+                            <Link to={'../checkout'} style={{color:'inherit',textDecoration:'none'}}>Finalizar compra</Link>
+                        </Button>
                         <Button variant="outlined" onClick={() => { clear() }} > Vaciar carrito</Button>
                         <Button variant="contained"> 
                             <Link to={'../'} style={{color:'inherit',textDecoration:'none'}}>Seguir comprando</Link>

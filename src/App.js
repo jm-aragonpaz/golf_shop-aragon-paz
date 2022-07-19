@@ -10,7 +10,7 @@ import { useContext } from 'react';
 import { MyCartContext } from './context/CartContext';
 import TestConsulta from './components/firebase/TestConsulta';
 import TestConsultaCol from './components/firebase/TestConsultaCol';
-
+import CheckOut from './components/Checkout/CheckOut'
 function App() {
   const cart = useContext(MyCartContext)
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/category/:itemCategory" element={<ItemListContainer greeting="hola"/>} />
         <Route path="/item/:itemChosen" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/checkout" element={<CheckOut/>}/>
 
         {/* <Route path="/testconsulta" element={<TestConsulta />} /> */}
         {/* <Route path="/testconsultacol" element={<TestConsultaCol />} /> */}
