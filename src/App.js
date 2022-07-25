@@ -8,8 +8,6 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyCartContext } from './context/CartContext';
-import TestConsulta from './components/firebase/TestConsulta';
-import TestConsultaCol from './components/firebase/TestConsultaCol';
 import CheckOut from './components/Checkout/CheckOut'
 function App() {
   const cart = useContext(MyCartContext)
