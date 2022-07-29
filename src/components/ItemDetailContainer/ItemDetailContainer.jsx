@@ -14,7 +14,7 @@ export default function ItemDetailContainer() {
   useEffect(()=>{
     const db = getFirestore();
     const itemCons= doc(db, 'products', itemChosen);
-    console.log(itemCons)
+    // console.log(itemCons)
     let promiseItem = new Promise((resolve, reject)=>{
       setTimeout(()=>{resolve(getDoc(itemCons))},1000)
     })

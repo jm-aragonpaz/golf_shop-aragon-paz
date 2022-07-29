@@ -21,10 +21,11 @@ export default function CartContext({children}) {
     }
 
     function removeItem(item){
+        
         console.log(item)
-        setTotalPrice(totalPrice - item.price)
+        setTotalPrice(totalPrice - item.price* item.quantity)
         setCart(cart.filter((cartIt) => {
-            return (cartIt.id != item.id)
+            return (cartIt.id !== item.id)
         }));
     }
 

@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import Item from "../Item/Item"
 import ItemCount from '../ItemCount/ItemCount';
 import swal from "sweetalert";
 import { SettingsCellOutlined } from '@mui/icons-material';
@@ -11,10 +10,6 @@ export default function ItemDetail({item}) {
   function onAdd(cant,stock){
     
     if((cant>0)&&(stock>0)){
-      console.log(cant);
-      addItem(item,cant);
-      setCount(cant);
-      console.log(count);
       swal({                 
         title: 'Información',
         text: `¿Estás seguro que queres agregar ` + cant +` unidad/es al carrito?`,
@@ -28,20 +23,23 @@ export default function ItemDetail({item}) {
             swal(`Usted ha agregado`+ cant +` unidad/es al carrito`,{
                 icon:"success",
             });
+            addItem(item,cant);
+            setCount(cant);
             
         }else{
             swal("Podés volver a seleccionar la cantidad deseada");
         }
     })
-    
     }
 }
-console.log(count);
   return (
     <div id="grid">
-        <Item  title={item.title} price={item.price} 
-        description={item.description} pictureUrl={item.pictureUrl} />
-        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+        <div>{item.title}</div>
+        <div><img src={item.pictureUrl}/></div>
+        <div>Stock: {item.stock}</div>
+        <div>Precio: {item.price} USD</div>
+        <div>{item.description}</div>
+      <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
     </div>
   );
 }

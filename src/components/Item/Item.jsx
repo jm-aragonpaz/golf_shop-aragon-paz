@@ -24,16 +24,14 @@ export default function Item({ id, title, price, description, pictureUrl}) {
                             {title}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            {description}. Precio: {price} USD
+                            Precio: {price} USD
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActionArea>
-                    <Button size="small" color="primary">
+                <Button size="small" color="primary">
                         <Link to={`./item/${id}`} style={{color:'inherit',textDecoration:'none'}}>Ver Detalle</Link>
                     </Button>
                     {/* <ItemCount stock={5} initial={1} onAdd="onAdd"/> */}
-                </CardActionArea>
             </Card>
     );
 }

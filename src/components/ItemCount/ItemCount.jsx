@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./ItemCount.css";
+import swal from "sweetalert";
 
 export default function ItemCount({stock,initial,onAdd}){
+    console.log(stock)
     const [auxInitial, setAuxInitial] = useState(initial);
-    const [auxStock, setAuxStock] = useState(stock);
-
+    const [auxStock, setAuxStock] = useState({stock});
+    useEffect(() => {setAuxStock(stock)}, [stock]);
+    console.log(auxInitial,auxStock)
     function rest(){
         if ((auxInitial >= 1)){
             setAuxInitial(auxInitial - 1);
@@ -16,6 +19,17 @@ export default function ItemCount({stock,initial,onAdd}){
         if ((auxInitial < stock) && (auxStock>=0)){
             setAuxInitial(auxInitial +1);
             setAuxStock(auxStock -1);
+        }else{
+            swal({                 
+                title: 'Información',
+                text: `En este momento no disponemos de mas unidades de este producto`,
+                icon: 'info',
+                buttons: true,
+                dangerMode:false,
+            // confirmButtonText: 'Ok',
+                })
+                // setAuxInitial(0)
+                console.log(auxStock)
         }
     }
     

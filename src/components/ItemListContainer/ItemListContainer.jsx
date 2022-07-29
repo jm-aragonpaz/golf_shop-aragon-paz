@@ -12,7 +12,7 @@ export default function ItemListContainer({ greeting }) {
     const [loading, setLoading] = useState(true);
 
     let { itemCategory } = useParams();
-    console.log(itemCategory)
+    // console.log(itemCategory)
 
     useEffect(() => {
             const db = getFirestore();

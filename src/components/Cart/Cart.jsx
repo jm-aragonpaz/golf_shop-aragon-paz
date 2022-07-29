@@ -57,7 +57,7 @@ export default function Cart() {
                                     <TableCell align="right">{row.price}</TableCell>
                                     <TableCell align="right">{row.subtotal}</TableCell>
                                     <TableCell align="right">{row.quantity}</TableCell>
-                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(cart) }} ><DeleteForeverIcon/>Eliminar Producto</Button></TableCell>
+                                    <TableCell align="right"><Button variant="contained" onClick={() => { removeItem(row) }} ><DeleteForeverIcon/>Eliminar Producto</Button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
