@@ -14,9 +14,9 @@ Then, go to http://localhost:3000 to view.
 
 ----
 ### For this project we used the following libraries:
-**Sweet alert:** For the different notifications provided to the user in its navigation.
-**MaterialUI:** For the general design of the App. It was chosen for being one of the most used and being extensively documented officially and by its users.
-**Firebase:** For the deployment and backend of the app, since it provides the possibility of running a data storage module and a backend server.
-**React-router-dom:** For the navigation of the App and the linking between the different components.
+- **Sweet alert:** For the different notifications provided to the user in its navigation.
+- **MaterialUI:** For the general design of the App. It was chosen for being one of the most used and being extensively documented officially and by its users.
+- **Firebase:** For the deployment and backend of the app, since it provides the possibility of running a data storage module and a backend server.
+- **React-router-dom:** For the navigation of the App and the linking between the different components.
 
 ----
