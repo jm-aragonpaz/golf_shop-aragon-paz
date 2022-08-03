@@ -16,7 +16,6 @@ export default function ItemDetail({item}) {
         icon: 'warning',
         buttons: true,
         dangerMode:false,
-    // confirmButtonText: 'Ok',
         })
     .then((confirmation)=> {
         if(confirmation){
@@ -35,7 +34,7 @@ export default function ItemDetail({item}) {
   return (
     <div id="grid">
         <div>{item.title}</div>
-        <div><img src={item.pictureUrl}/></div>
+        <div><img src={item.pictureUrl} alt=""/></div>
         <div>Stock: {item.stock}</div>
         <div>Precio: {item.price} USD</div>
         <div>{item.description}</div>

@@ -3,7 +3,6 @@ import Item from "../Item/Item";
 import './ItemList.css'
 
 function ItemList({ itemCategory }) {
-    // console.log(itemList)
   return (
     <div id="grid">
         {itemCategory.map((item) => 

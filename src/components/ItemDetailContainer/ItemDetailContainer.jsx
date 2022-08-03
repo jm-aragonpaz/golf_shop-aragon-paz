@@ -13,7 +13,6 @@ export default function ItemDetailContainer() {
   useEffect(()=>{
     const db = getFirestore();
     const itemCons= doc(db, 'products', itemChosen);
-    // console.log(itemCons)
     let promiseItem = new Promise((resolve, reject)=>{
       setTimeout(()=>{resolve(getDoc(itemCons))},1000)
     })
@@ -26,27 +25,6 @@ export default function ItemDetailContainer() {
     .finally(()=>{
       setLoading(false);
     })
-    // let promiseDetail= new Promise((resolve,reject)=>{
-    //   setTimeout(()=>{
-    //       fetch("http://localhost:3000/productList.json")
-    //       .then((response)=> response.json())
-    //       .then((data)=>{
-    //         resolve(data);
-    //       })
-    //   },2000) 
-    // });
-    // promiseDetail
-    // .then((resultado)=>{
-    //   let aux = resultado.find((element) => element.id == itemChosen)
-    //   setItem(aux);
-    // })
-    // .catch((error)=>{
-    //   setError(true);
-    //   console.log(error)
-    // })
-    // .finally(() =>{
-    //   setLoading(false);
-    // })
   },[itemChosen])
   return (
     <>

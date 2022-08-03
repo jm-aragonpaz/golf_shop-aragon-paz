@@ -10,18 +10,12 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
 import { Link } from 'react-router-dom';
 import CardMedia from '@mui/material/CardMedia';
 export default function Cart() {
 
     const { cart, removeItem, clear} = useContext(MyCartContext);
-    // console.log(JSON.stringify(cart));
-    // console.log(cart);
     let total= cart.reduce((previous, item)=> previous + (item.price*item.quantity),0)
-    // console.log(total)
-
-    // let total = (cart.reduce((acc, item) => acc + item.subTotal, 0));
 
     return (
         <>

@@ -1,17 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { resolvePath, useParams } from 'react-router-dom';
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';
 // import { MyCartContext } from '../../context/CartContext';
 import { collection, getDocs, getFirestore, where, query } from 'firebase/firestore';
 export default function ItemListContainer({ greeting }) {
-    // const ItemListContainer = ({Title, Name, Desc, Price}) =>{
     const [itemList, setItemList] = useState([])
     const [error, setError]= useState(false);
     const [loading, setLoading] = useState(true);
 
     let { itemCategory } = useParams();
-    // console.log(itemCategory)
 
     useEffect(() => {
             const db = getFirestore();

@@ -22,10 +22,8 @@ export const CartWidget = () =>{
     const handleClose=()=>{
         setAnchorIt(null);
     };
-    // console.log(cart)
     return(
         <div>
-            {/* <p><ShoppingCartIcon/> {Cant}</p> */}
             <Button
                     color="inherit"
                     id="basic-button"
