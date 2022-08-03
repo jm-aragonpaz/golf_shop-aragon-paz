@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "../Item/Item";
+import './ItemList.css'
 
 function ItemList({ itemCategory }) {
     // console.log(itemList)

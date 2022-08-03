@@ -1,8 +1,12 @@
 #navBar{
     display: flex;
     flex-direction:row;
-    width: 96%;
-    color: #fff
+    justify-content:center;
+    width: auto;
+    color: #fff;
+    background-color: #fff;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
 }
 #carrito{
     background-color: none;

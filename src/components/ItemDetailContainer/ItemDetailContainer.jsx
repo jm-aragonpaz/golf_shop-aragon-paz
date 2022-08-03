@@ -1,4 +1,3 @@
-//@ts-check
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';

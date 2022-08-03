@@ -1,4 +1,7 @@
 #grid{
     display:flex;
-    height: fit-content;
+    flex-wrap:wrap;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }

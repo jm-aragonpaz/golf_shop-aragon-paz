@@ -1,30 +1,37 @@
 import React, { useState, useContext} from 'react'
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { MyCartContext } from '../../context/CartContext'; 
+import swal from 'sweetalert';
 
 
 export default function CheckOut() {
-  const {cart, totalPrice, clear} = useContext(MyCartContext);
+  const {cart, clear} = useContext(MyCartContext);
   const [nombre, setNombre] = useState('');
   const [tel, setTel] = useState('');
   const [email, setEmail] = useState('');
   const [idCompra, setIdCompra] = useState('');
-  const [date, setDate] = useState('')
+  const [date, setDate] = useState('');
+  const total = cart.reduce((previous,item)=> previous + (item.price*item.quantity),0);
 
   function handleClickComprar(){
     const order = { buyer: {nombre, tel, email}, 
-    items:[...cart], total: totalPrice, date:Date.now()}
+    items:[...cart], total: total, date:Date.now()};
 
+    let nameRegex = /^[a-zA-ZÀ-ÿ\s]{1,40}$/
+    let phoneRegex = /^[0-9]/gm
+    let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+
+    if(!nameRegex.test(nombre) || !phoneRegex.test(tel) || !emailRegex.test(email)) {
+      swal(`Error!`, `Por favor completa el formulario correctamente y verifica que el carrito este lleno.` , `error`);
+      return;
+    }
+    
     const db = getFirestore();
     const collectionRef= collection(db, 'orders');
-
-    //Si quiero verificar que los campos no esten vacios los tengo que validar. Para eso se puede hacer:
-    //
-    if(!nombre || !tel || !email) return; //Aca simplemente sale de la funcion y no hace nada. Trabajar para que quede mejor.
-    //                                      No usar el prevent default. (no sirve para esto)
-
-    addDoc(collectionRef, order).then(({id})=> setIdCompra(id))
-    setDate(Date())
+    addDoc(collectionRef, order).then(({id})=> {
+      setIdCompra(id);
+      setDate(Date())
+    });
     clear()
     clearData()
   }
