@@ -8,8 +8,8 @@ E-commerce developed as a final project for the ReactJS course of the CoderHouse
 ### Access the App and running locally:
 - To access the App:
 - To run locally, clone the repository and run
-	`npm install`
-	`npm start`.
+	1. `npm install`
+	2. `npm start`.
     Then, go to http://localhost:3000 to view.
 
 ----
