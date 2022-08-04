@@ -9,24 +9,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyCartContext } from './context/CartContext';
 import CheckOut from './components/Checkout/CheckOut'
+import Footer from './components/Footer/Footer';
 function App() {
   const cart = useContext(MyCartContext)
   return (
     <BrowserRouter>
-    <div>
+    <div className={"layout"}>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<ItemListContainer greeting="Hola, soy un greeting" />} />
-        <Route path="/category/:itemCategory" element={<ItemListContainer greeting="hola"/>} />
+        <Route path="/" element={<ItemListContainer/>} />
+        <Route path="/category/:itemCategory" element={<ItemListContainer/>} />
         <Route path="/item/:itemChosen" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/checkout" element={<CheckOut/>}/>
-
-        {/* <Route path="/testconsulta" element={<TestConsulta />} /> */}
-        {/* <Route path="/testconsultacol" element={<TestConsultaCol />} /> */}
-        {/* <Route path="/testcolfilt" element={<TestColFilt />} /> */}
       </Routes>
-      <div>Footer</div>
+      <Footer/>
       </div>
     </BrowserRouter>
   );

@@ -1,0 +1,53 @@
+.gridDetail{
+    display:flex;
+    width:auto;
+    overflow: auto;
+    justify-content:space-evenly;
+}
+.artImg{
+    width:40%;
+    display:flex;
+}
+.itImg{
+    width:100%
+}
+.itCard{
+    display:flex;
+    flex-direction:column;
+    width:40%;
+    justify-content:center;
+}
+.artTit{
+    font-size:xx-large;
+    width:fit-content;
+    margin-bottom:2rem;
+}
+.artDes{
+    margin-bottom:2rem;
+}
+.artPrice{
+    font-size:larger;
+}
+
+
+@media (max-width: 480px) {
+    .gridDetail{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+    }
+    .artImg{
+        width: 100%;
+    }
+    .itImg{
+    width:100%
+    }
+    .itCard{
+        display:flex;
+        flex-direction:column;
+        width:90%;
+        justify-content:center;
+    }
+
+}

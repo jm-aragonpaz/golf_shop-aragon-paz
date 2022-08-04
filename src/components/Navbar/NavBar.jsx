@@ -17,7 +17,7 @@ import './NavBar.css'
 import {ReactComponent as MyLogo} from "../../assets/golf_2.svg";
 import { Link } from "react-router-dom";
 
-const pages = ["Ofertas", "Productos", "Contacto"];
+const pages = ["Drivers","Hierros","Wedges","Putters", "Pelotas", "Ropa"];
 const settings = ["Perfil", "Configuracion", "Compras", "Salir"];
 
 const ResponsiveAppBar = () => {
@@ -40,6 +40,7 @@ const ResponsiveAppBar = () => {
     };
 
 return (
+    <div className={"navBar"}>
     <AppBar position="static" id="navBar">
         <Container maxWidth="xl"
                     sx={{
@@ -169,6 +170,7 @@ return (
             </Toolbar>
         </Container>
     </AppBar>
+    </div>
     );
 };
 export default ResponsiveAppBar;

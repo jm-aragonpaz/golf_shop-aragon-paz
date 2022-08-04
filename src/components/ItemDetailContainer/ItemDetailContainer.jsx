@@ -27,10 +27,10 @@ export default function ItemDetailContainer() {
     })
   },[itemChosen])
   return (
-    <>
+    <div className={"itGrid"}>
         {loading && "Loading..."}
         {err && "Hubo un error al cargar el producto"}
-        {item && <ItemDetail item={item} />}
-    </>
+        {item && <ItemDetail id="itemDetail" item={item} />}
+    </div>
   )
 }

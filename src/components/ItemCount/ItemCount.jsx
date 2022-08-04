@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./ItemCount.css";
 import swal from "sweetalert";
+import Button from '@mui/material/Button';
 
 export default function ItemCount({stock,initial,onAdd}){
     const [auxInitial, setAuxInitial] = useState(initial);
@@ -32,13 +33,13 @@ export default function ItemCount({stock,initial,onAdd}){
         
         <div>
             <div id="buttonBox">
-                <div><button onClick={()=> rest()}>-</button></div>
+                <div><Button variant="outlined" style={{color:'green',borderColor:'green', width:'2rem'}}onClick={()=> rest()}>-</Button></div>
                 <div>{auxInitial}</div>
-                <div><button onClick={()=> suma()}>+</button></div>
+                <div><Button variant="outlined" style={{color:'green',borderColor:'green',width:'2rem'}} onClick={()=> suma()}>+</Button></div>
             </div>
             <div id="addButton">
-                <button  onClick={()=> {onAdd(auxInitial,auxStock)}}>Agregar al carrito</button>
-                <button ><Link to={'/'} style={{textDecoration:"none", color:"black"}}>Seguir comprando</Link></button>
+                <Button variant="outlined" style={{borderColor:'green',color:'green', height:'3rem'}} onClick={()=> {onAdd(auxInitial,auxStock)}}>Agregar al carrito</Button>
+                <Button variant="outlined" style={{borderColor:'green',height:'3rem'}}><Link to={'/'} style={{textDecoration:"none", color:"green"}}>Seguir comprando</Link></Button>
                 </div>
         </div>
     )

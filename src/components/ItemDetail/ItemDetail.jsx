@@ -3,6 +3,8 @@ import ItemCount from '../ItemCount/ItemCount';
 import swal from "sweetalert";
 import { SettingsCellOutlined } from '@mui/icons-material';
 import { MyCartContext } from '../../context/CartContext';
+import './ItemDetail.css'
+import { Box } from '@mui/material';
 
 export default function ItemDetail({item}) {
   const [count, setCount] = useState({})
@@ -32,13 +34,17 @@ export default function ItemDetail({item}) {
     }
 }
   return (
-    <div id="grid">
-        <div>{item.title}</div>
-        <div><img src={item.pictureUrl} alt=""/></div>
+    <Box sx={{flexGrow:1}}>
+    <div className={"gridDetail"}>
+        <div className={"artImg"}><img className={"itImg"} src={item.pictureUrl} alt=""/></div>
+        <div className={"itCard"}>
+        <div className={"artTit"}>{item.title}</div>
+        <div className={"artDes"}>{item.description}</div>
+        <div className={"artPrice"}>Precio: {item.price} USD</div>
         <div>Stock: {item.stock}</div>
-        <div>Precio: {item.price} USD</div>
-        <div>{item.description}</div>
       <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
+      </div>
     </div>
+    </Box>
   );
 }

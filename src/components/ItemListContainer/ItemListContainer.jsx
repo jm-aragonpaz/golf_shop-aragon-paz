@@ -4,7 +4,7 @@ import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';
 // import { MyCartContext } from '../../context/CartContext';
 import { collection, getDocs, getFirestore, where, query } from 'firebase/firestore';
-export default function ItemListContainer({ greeting }) {
+export default function ItemListContainer({}) {
     const [itemList, setItemList] = useState([])
     const [error, setError]= useState(false);
     const [loading, setLoading] = useState(true);
@@ -14,7 +14,6 @@ export default function ItemListContainer({ greeting }) {
     useEffect(() => {
             const db = getFirestore();
             const collList = collection(db, 'products');
-            // console.log(collList)
             if(!itemCategory){
                 let collectionFounded = new Promise((res, reject)=>{
                     setTimeout(()=>{res(getDocs(collList))},1000)
@@ -49,10 +48,10 @@ export default function ItemListContainer({ greeting }) {
     return (
 
         <div>
-            <div>
-            <span className="itemListContainer">{greeting}</span>
+            <div className="itemListCont">
+                <h2 className="tit">Busca en nuestro catálogo eso que necesitas</h2>
             </div>
-            <div id="greeting">
+            <div className="greeting">
             {loading && "Loading..."}
             {error && "Error al cargar, reintente luego"}
             {itemList && <ItemList itemCategory={itemList} />}
