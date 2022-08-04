@@ -13,13 +13,15 @@ export default function CartContext({children}) {
         }
     });
     const [totalPrice, setTotalPrice] = useState(0);
-    const [cant,setCant]=useState(0)
+    const [cant,setCant]=useState(0);
+    const [emptyCart, setEmptyCart]=useState(true)
     useEffect(() =>{
         localStorage.setItem("carrito",JSON.stringify(cart));
     },[cart]);
 
 
     function addItem(item,quantity) {
+        setEmptyCart(false)
         let duplicate = cart.find(cart=>cart.id === item.id)
         if (duplicate){
             swal({                 
@@ -47,13 +49,15 @@ export default function CartContext({children}) {
     function clear(){
         setCart([])
         setTotalPrice(0)
+        setEmptyCart(true)
     }
     let data = {
         cart,
         addItem,
         removeItem,
         clear,
-        totalPrice
+        totalPrice,
+        emptyCart
     }
     return (
         <>

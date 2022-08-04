@@ -7,7 +7,7 @@ import { Button, Input } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export default function CheckOut() {
-  const {cart, clear} = useContext(MyCartContext);
+  const {cart, clear, emptyCart} = useContext(MyCartContext);
   const [nombre, setNombre] = useState('');
   const [tel, setTel] = useState('');
   const [email, setEmail] = useState('');
@@ -23,11 +23,11 @@ export default function CheckOut() {
     let phoneRegex = /^[0-9]/gm
     let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 
-    if(!nameRegex.test(nombre) || !phoneRegex.test(tel) || !emailRegex.test(email)) {
+    if(!nameRegex.test(nombre) || !phoneRegex.test(tel) || !emailRegex.test(email) || emptyCart) {
       swal(`Error!`, `Por favor completa el formulario correctamente y verifica que el carrito este lleno.` , `error`);
       return;
     }
-    
+
     const db = getFirestore();
     const collectionRef= collection(db, 'orders');
     addDoc(collectionRef, order).then(({id})=> {
