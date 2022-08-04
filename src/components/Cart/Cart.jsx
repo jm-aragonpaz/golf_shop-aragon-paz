@@ -40,7 +40,10 @@ export default function Cart() {
                                     key={row.id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell>
+                                    <TableCell component="th" scope="row" sx={{display: {xs: "flex", md:"none"}}}>
+                                        <img style={{width:"3rem"}} src={row.pictureUrl} alt={row.title}/>
+                                    </TableCell>
+                                    <TableCell sx={{display: {xs: "none", md:"flex"}}}>
                                     <CardMedia
                                         component="img"
                                         height="100"
@@ -48,11 +51,11 @@ export default function Cart() {
                                         alt={row.description}
                                     />
                                     </TableCell>
-                                    <TableCell align="right">{row.title}</TableCell>
-                                    <TableCell align="right">{row.price}</TableCell>
-                                    <TableCell align="right">{row.subtotal}</TableCell>
-                                    <TableCell align="right">{row.quantity}</TableCell>
-                                    <TableCell align="right"><Button style={{backgroundColor:'green',width:'3rem'}} variant="contained" onClick={() => { removeItem(row) }} ><DeleteForeverIcon/></Button></TableCell>
+                                    <TableCell align="center">{row.title}</TableCell>
+                                    <TableCell align="center">{row.price}</TableCell>
+                                    <TableCell align="center">{row.subtotal}</TableCell>
+                                    <TableCell align="center">{row.quantity}</TableCell>
+                                    <TableCell align="center"><Button style={{backgroundColor:'green',width:'3rem'}} variant="contained" onClick={() => { removeItem(row) }} ><DeleteForeverIcon/></Button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
