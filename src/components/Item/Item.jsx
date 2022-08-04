@@ -29,7 +29,7 @@ export default function Item({ id, title, price, description, pictureUrl}) {
                     </CardContent>
                 </CardActionArea>
                 <Button size="small" color="primary">
-                        <Link to={`./item/${id}`} style={{color:'green',textDecoration:'none'}}>Ver Detalle</Link>
+                        <Link to={`/item/${id}`} style={{color:'green',textDecoration:'none'}}>Ver Detalle</Link>
                     </Button>
             </Card>
     );
