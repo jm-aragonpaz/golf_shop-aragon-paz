@@ -2,7 +2,9 @@ import React, { useState, useContext} from 'react'
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { MyCartContext } from '../../context/CartContext'; 
 import swal from 'sweetalert';
-
+import './CheckOut.css'
+import { Button, Input } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function CheckOut() {
   const {cart, clear} = useContext(MyCartContext);
@@ -42,13 +44,21 @@ export default function CheckOut() {
   }
   return (
     <div>
-      <p>Su id de compra es: {idCompra}. Fecha de la compra: {date}</p>
-      <h1>Complete para terminar su compra</h1>
-      <input onChange={(e)=> setNombre(e.target.value)} type={'text'} placeholder={'Ingrese nombre'}></input><br/>
-      <input onChange={(e)=> setTel(e.target.value)} type={'tel'} placeholder={'Ingrese tel'}></input><br/>
-      <input onChange={(e)=> setEmail(e.target.value)} type={'email'} placeholder={'Ingrese su email'}></input><br/>
+      <h2>Completa el formulario para terminar tu compra</h2>
+      <div className={"formulario"}>
+      <Input style={{borderColor:'green'}} variant="contained" onChange={(e)=> setNombre(e.target.value)} type={'text'} placeholder={'Ingrese nombre'}></Input><br/>
+      <Input onChange={(e)=> setTel(e.target.value)} type={'tel'} placeholder={'Ingrese tel'}></Input><br/>
+      <Input onChange={(e)=> setEmail(e.target.value)} type={'email'} placeholder={'Ingrese su email'}></Input><br/>
+      </div>
       <br/>
-      <button onClick={handleClickComprar}>Comprar</button>
+      <div className="compBut">
+      <Button  style={{color:'green',borderColor:'green',marginInline:'1rem'}} variant="outlined" onClick={handleClickComprar}>Comprar</Button>
+      <Button  style={{color:'green',borderColor:'green'}} variant="outlined" onClick={handleClickComprar}>
+      <Link to={'/'} style={{color:'inherit',textDecoration:'none'}}>Ir a Inicio</Link></Button>
+
+      </div>
+      <p>Su id de compra es: {idCompra} y la fecha de la compra: {date}</p>
+    
     </div>
   )
 }
