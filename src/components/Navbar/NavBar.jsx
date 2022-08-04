@@ -115,7 +115,6 @@ return (
                 variant="h5"
                 noWrap
                 component="a"
-                href="/"
                 sx={{
                     mr: 2,
                     display: { xs: "flex", md: "none" },
@@ -128,7 +127,9 @@ return (
                     fontSize: "1rem",
                 }}
             >
-            GOLF SHOP
+                <Link to={"/"} style={{textDecoration:"none", color:"white"}}>
+                    GOLF SHOP
+                </Link>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (
