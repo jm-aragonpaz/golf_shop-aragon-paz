@@ -55,7 +55,6 @@ return (
                 variant="h6"
                 noWrap
                 component="a"
-                href="/"
                 sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },
@@ -66,7 +65,9 @@ return (
                     textDecoration: "none",
                 }}
             >
-            GOLF SHOP
+                <Link to={"/"} style={{textDecoration:"none", color:"white"}}>
+                    GOLF SHOP
+                </Link>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -101,7 +102,7 @@ return (
                 {pages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
-                        <Link style={{textDecoration:"none", color:"white"}} to={`category/${page}`}> 
+                        <Link style={{textDecoration:"none", color:"green"}} to={`category/${page}`}> 
                             {page}
                         </Link>
                         </Typography>
@@ -119,11 +120,12 @@ return (
                     mr: 2,
                     display: { xs: "flex", md: "none" },
                     flexGrow: 1,
-                    fontFamily: "monospace",
+                    // fontFamily: "monospace",
                     fontWeight: 700,
-                    letterSpacing: ".3rem",
+                    letterSpacing: ".1rem",
                     color: "inherit",
                     textDecoration: "none",
+                    fontSize: "1rem",
                 }}
             >
             GOLF SHOP
@@ -144,7 +146,7 @@ return (
             <Box id="carrito">
                 <CartWidget Cant="4"/>
             </Box>        
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0 ,display: { xs: "none", md: "flex" } }}>
             <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
             <Avatar alt="Juan" src="/static/images/avatar/2.jpg" />
