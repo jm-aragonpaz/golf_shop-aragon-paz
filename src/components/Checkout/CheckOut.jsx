@@ -33,6 +33,11 @@ export default function CheckOut() {
     addDoc(collectionRef, order).then(({id})=> {
       setIdCompra(id);
       setDate(Date())
+      swal({
+        title: 'Felicitaciones. Tu compra fue realizada',
+        text:`Tu Id de compra es: ` + id + `. Anótelo en caso de necesitar realizar alguna gestión extra.`,
+        icon:"success",
+      });
     });
     clear()
     clearData()
@@ -53,11 +58,10 @@ export default function CheckOut() {
       <br/>
       <div className="compBut">
       <Button  style={{color:'green',borderColor:'green',marginInline:'1rem'}} variant="outlined" onClick={handleClickComprar}>Comprar</Button>
-      <Button  style={{color:'green',borderColor:'green'}} variant="outlined" onClick={handleClickComprar}>
+      <Button  style={{color:'green',borderColor:'green'}} variant="outlined">
       <Link to={'/'} style={{color:'inherit',textDecoration:'none'}}>Ir a Inicio</Link></Button>
 
       </div>
-      <p>Su id de compra es: {idCompra} y la fecha de la compra: {date}</p>
     
     </div>
   )
